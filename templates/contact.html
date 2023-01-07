@@ -1,0 +1,119 @@
+{% load static %}
+{% include 'header.html' %}
+<div x-data="{ isOpen: false }" class="relative   overflow-hidden">
+  
+   
+
+ 
+    <div class="max-w-7xl mx-auto">
+      <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+        <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="50,0 100,0 50,100 0,100" />
+        </svg>
+        
+        <!-- On: "bg-indigo-600", Off: "bg-gray-200" -->
+        {% include 'base.html' %}
+  
+        <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+          <div class="sm:text-center lg:text-left">
+            <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl sm:tracking-tight md:text-6xl md:tracking-tight">
+              
+              <span class="block text-purple-700 xl:inline">Get in touch</span>
+            </h1>
+            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">To make our software company platform successful,
+                we want to make sure that any question that our users have gets answered as soon as possible. For this reason, you can contact us  here in case you have any inquiry and we 
+                will answer your questions as soon as possible.
+            </p>
+            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+              <div class="rounded-md shadow">
+                <a href="/product" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"> Get started </a>
+              </div>
+              <div class="mt-3 sm:mt-0 sm:ml-3">
+                <a href="/contact-us" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-purple-700 bg-purple-100 hover:bg-purple-200 md:py-4 md:text-lg md:px-10">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <style>
+       
+     </style> 
+   
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2  ">
+          <img  class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://cdn.pixabay.com/photo/2017/08/20/09/10/system-2660914_960_720.jpg">
+      
+    </div>
+ </div>
+
+  <!-- scroll to face detect result section -->
+  
+  <!-- end scroll to detect section -->
+           
+     
+
+  
+     
+   
+<!-- end nav bar -->
+ 
+ 
+<!--  instructions div -->
+  
+     
+  
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="py-12 bg-gray-200 ">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div>
+        <h2 class="text-lg text-purple-600 font-semibold">Please fill in the form with all the details mentioned :</h2>
+        <form hx-post="/contact-us" hx-target="body">
+            {% csrf_token %}
+
+            <P>&nbsp;</P>
+            <p class="text-lg py-4 leading-6 font-medium text-gray-900">First Name:</p>
+            <input name="first_name" required  class="relative w-full rounded-md  font-bold flex justify-center py-2 px-4 border border-gray-900 hover: focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" placeholder="Example:tdspra@gmail.com" required>
+            <P>&nbsp;</P>
+
+            <P>&nbsp;</P>
+            <p class="text-lg py-4 leading-6 font-medium text-gray-900">Last Name:</p>
+            <input name="last_name" required  class="relative w-full rounded-md  font-bold flex justify-center py-2 px-4 border border-gray-900 hover: focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" placeholder="Example:tdspra@gmail.com" required>
+            <P>&nbsp;</P>
+
+
+            <P>&nbsp;</P>
+            <p class="text-lg py-4 leading-6 font-medium text-gray-900">Email:</p>
+            <input name="email_address" required  class="relative w-full rounded-md  font-bold flex justify-center py-2 px-4 border border-gray-900 hover: focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" placeholder="Example:tdspra@gmail.com" type="email" required>
+            <P>&nbsp;</P>
+
+
+            <P>&nbsp;</P>
+            <p class="text-lg py-4 leading-6 font-medium text-gray-900">Subject :</p>
+            <input name="subject" required  class="relative w-full rounded-md  font-bold flex justify-center py-2 px-4 border border-gray-900 hover: focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" placeholder="Subject" required>
+            <P>&nbsp;</P>
+    
+            <P>&nbsp;</P>
+            <p class="text-lg py-4 leading-6 font-medium text-gray-900">Text:</p>
+            <textarea name="message" required  class="relative w-full rounded-md  font-bold flex justify-center py-2 px-4 border border-gray-900 hover: focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500" placeholder="Message" required></textarea>
+            <P>&nbsp;</P>
+            
+            <button  @click="isOpen = !isOpen" type="submit" class="group transition ease-in-out delay-150   hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-500 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                  <!-- Heroicon name: solid/lock-closed -->
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                  </svg>
+                  
+                </span>
+                Submit
+            </button> 
+            
+        </form>
+      </div>
+
+      <P>&nbsp;</P>
+      <centre><h2 class="text-lg text-red-600 font-semibold">{{message}}</h2></centre>
+      
+        
+        
+</div>

@@ -1,0 +1,479 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<!-- Face detection instruction div -->
+<div class="py-12 bg-gray-200 ">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+
+      <!-- Face detection instruction header -->
+      <div class="lg:text-center">
+        <h2 class="text-lg text-indigo-600 font-semibold">Face Detector</h2>
+        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">Check if image contains a face</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">Please follow the nessesary instructions to detect a face in your image</p>
+      </div>
+      <!-- --------------------------------------->
+
+
+
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <!------------------------------------------------------------------------------------------>
+          
+
+          <!-- Face detection Instruction : part 1 -->
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/globe-alt -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
+                </svg>
+                
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Make sure you have good internet connection</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">You must have a reliable internet connection, otherwise the image will lag and our software will not be able 
+              to detect a face.</dd>
+          </div>
+          <!-- end face detection instruction  part 1-->
+
+          
+          <!-- Face detection Instruction : part 2 -->
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/scale -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+                
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Press button to take a photo</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">Press the button to take a photo, make sure you allow the camera on your website
+              , do not zoom in our zoom out too much . Be moderate .</dd>
+          </div>
+          <!--------------------------------------------------------------------------->
+
+
+          <!-- Face detection Instruction div  : part 3 -->
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/lightning-bolt -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Upload file option</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">Another way for our software to get a photo is buy uploading a file from your local storage 
+              accpeted types are jpg and png only.
+            </dd>
+          </div>
+          <!------------------------------------------------------------------->
+
+
+          <!-- Face Detection  Instruction Div : part 4  -->
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/annotation -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">It is only a matter of time</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">Finally, you just have to wait till we process your photo. This process usually takes up to 60 seconds.</dd>
+          </div>
+          <!--------------------------------------------------------->
+
+
+        <!------------------------------------------------------------------------------------------------------------>
+        </dl>
+      </div>
+       
+      
+    </div>
+</div>
+  
+<!-- end instructions div -->
+
+
+
+
+
+<!-- face detection div -->
+<div class="py-12 bg-gray-200 ">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!------------------------------------------------------------------------------------------------------------->
+    
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div  x-data="{ isOpen: false }">
+            <button type="submit" onClick="webcam()" @click="isOpen = !isOpen" class="group transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300  relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white  bg-blue-500 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                <!-- Heroicon name: solid/lock-closed -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                </svg>
+                
+              </span>
+               Take photo
+            </button>
+            <!-- take photo scroll div -->
+            <div
+                x-show="isOpen"
+                x-transition:enter="ease-out duration-300 transform"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="ease-in duration-200 transform"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                
+            >
+              <div id="error-modal" style="visibility:hidden;" class="fixed z-10 inset-0 overflow-y-auto">
+                <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+                  <div class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                      <div class="sm:flex sm:items-start">
+                        
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                          <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Take you photo now :</h3>
+                          <P>&nbsp;</P>
+                          <P>&nbsp;</P>
+                           
+                            <!-- CSS -->
+                            <style>
+                              #my_camera{
+                                  width: 100%;
+                                  height: 100%;
+                      
+                              }
+                            </style>
+                            
+                           
+                              <div id="my_camera"></div>
+                               
+                              
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <!-- virtual form just to send data to the server -->
+                    <form id="upload-form" enctype="multipart/form-data"  method="POST">
+                      {% csrf_token %}
+                      <input id="snap-upload"  type="hidden"  value="" name="snap-photo">
+                      <button type="submit" id="d" style="visibility:hidden;"></button>
+                    </form>
+                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                      <button type="button"  onclick="take_snapshot()"  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-500 text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">Capture</button>
+                      <script>
+                        // webcam for take photo 1
+                        function webcam() {
+                            Webcam.set({
+                            width: 320,
+                            height: 240,
+                            image_format: 'jpeg',
+                            jpeg_quality: 90
+                            });
+                            Webcam.attach( '#my_camera' );
+                        
+                        }
+                        //  take snap for photo
+                        function take_snapshot() {
+                        // take snapshot and get image data
+                        Webcam.snap( function(data_uri) {
+                            // display results in page
+                            document.getElementById('snap-upload').value = data_uri;
+                            $("#d").click();
+                                
+                        } );
+                        }
+                        
+                      </script>
+                      <button @click="isOpen = false" type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+     
+          <!-- upload file scroll div -->
+          <div  x-data="{ isOpen: false }" >
+            <button  @click="isOpen = !isOpen" type="submit" class="group transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                <!-- Heroicon name: solid/lock-closed -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                </svg>
+                
+              </span>
+              Upload file
+             
+            </button> 
+            <div
+            x-show="isOpen"
+            x-transition:enter="ease-out duration-300 transform"
+            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave="ease-in duration-200 transform"
+            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            
+            >
+            <div  id="error-modal-2" style="visibility:hidden;"   class="fixed z-10 inset-0 overflow-y-auto" >
+              <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+                <!--
+                  Modal panel, show/hide based on modal state.
+          
+                  Entering: "ease-out duration-300"
+                    From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    To: "opacity-100 translate-y-0 sm:scale-100"
+                  Leaving: "ease-in duration-200"
+                    From: "opacity-100 translate-y-0 sm:scale-100"
+                    To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                -->
+                <div class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
+                  <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                      <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left ">
+                        
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Upload your file now:</h3>
+                        <P>&nbsp;</P>
+                        <form   enctype="multipart/form-data"  method="POST">
+                          {% csrf_token %}
+                          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md text-sm text-gray-600">
+                            <label for="fileupload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                              <span>Upload a file</span>     
+                              <input id="fileupload" type="file"     name="file-upload" capture="camera"   accept="image/*" class="sr-only" required   > 
+                              <script>
+                                   
+                              </script>
+                              <p id="ust" class="text-green-600"></p>
+                            </label>
+                            <p class="pl-1">or drag and drop</p>
+                           
+                          </div>
+                          <button type="submit" id="k" style="visibility:hidden;"></button>
+                        </form>
+                        <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button onclick="add1()"  class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-500 text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm">Upload</button>
+                    <script>
+                      function add1() {
+                        document.getElementById("k").click();
+                      }
+                    </script>
+                    <button     @click="isOpen = false"  class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          </div>
+        </div>
+           
+        </dl>
+        
+      </div>
+       
+    <!---------------------------------------------------------------------------------------------------------------->
+    </div>
+</div>
+
+
+ 
+ <!-- ----------------------------------------------------  -- -->
+
+
+<div style="margin-top: -90px;" class="py-12 bg-gray-200">
+  <!-- face detection result , for one face only ! -->
+  <!-- if there was a response !-->
+  {% if request == 'processed' %}
+  <!-- click automatic link to take user to result onece page is refreshed -->
+  
+  <!-- ---------------------------------------------------------  --------- -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="position:relative;"  class="lg:text-center">
+        <!-- return the image back as a canvas -->
+        <!-- display image size depending on the type of inout , camera photo or file -->
+         <P>&nbsp;</P>
+         <img id="basic" style="display:none;"   src="media/uploads/s.jpg">
+        
+        <centre><canvas id="myCanvas2"   style="border:1px solid #d3d3d3;">
+          Your browser does not support the HTML5 canvas tag.</canvas></centre>
+        
+
+        <!-- a script to set the canvas width equal to the input image size to avoid any problems with  image size object fit -->
+        <script>
+            var arr = [];
+            x = document.getElementById("basic").width ;
+            document.getElementById("myCanvas2").width = x;
+            y  = document.getElementById("basic").height ;
+            document.getElementById("myCanvas2").height = y;
+            var c = document.getElementById("myCanvas2");
+            
+            
+        </script>
+        <!-- style my canvas and set background image -->
+        <style>
+          #myCanvas2 {
+               background-image : url("media/uploads/s.jpg");
+               background-repeat: no-repeat;
+               width : 100%;
+               height: auto;
+               background-size: 100%;
+               max-width: 600px;
+               max-height: 400px;
+          }
+        </style>
+        <script>
+                var ctx = c.getContext("2d");
+
+        </script>
+        <!-- draw a rectangle over the image to indicate face landmarks -->
+      
+          <dl>
+              <!-- display information for face detection nested loop for each face number -->
+              {% for  y in lines  %} 
+                         
+                  
+                          <!-- script to generate a random color for each face -->
+                          <script>
+                            var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                              if (!arr.includes(randomColor)) {
+                                  arr.push(randomColor);
+                              }
+                            
+                          </script>
+                        
+                          {% for a,b in  y.1.items %}
+                       
+                            
+                            
+                            {% if a == "roi" %}
+                            
+                            <script>
+                              // Clip a rectangular area
+                              var color = "#" + arr[arr.length - 1]
+                              ctx.strokeStyle =  color;
+                              currentColor = color;
+                              ctx.lineWidth = 5; 
+                              ctx.strokeRect("{{b.0}}" , "{{b.1}}" , "{{b.2}}" , "{{b.3}}");
+                              
+                              
+                            </script> 
+                            {% endif %}
+                            <!-- draw landmarks on image -->
+                            {% if a == "landmarks" %}
+                              <!-- nested loops -->
+                             
+                              {% for c in b %}
+                              <script>
+                                ctx.lineWidth = 2; 
+                                ctx.fillStyle = "#" + arr[arr.length - 1];
+                                ctx.fillRect("{{c.0}}" , "{{c.1}}" , 5, 5);
+                              </script>
+                              {% endfor %}
+                            {% endif %}
+                           
+                         
+                          {% endfor %}
+                          
+         
+              {% endfor %}
+              <!-- end information display -->
+           
+          </dl>
+        
+         
+        
+      </div>
+
+      <!-- display face detection information -->
+      <P>&nbsp;</P>
+      <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Face Detection  Information</h3>
+          <p class="mt-1 max-w-2xl text-sm text-gray-500">Each face number with its image shown here:</p>
+        </div>
+        <!-- display information about faces -->
+        <div class="border-t border-gray-200">
+          
+          <dl>
+            
+            <!-- loop to display cropped images information about faces -->
+            {% for i in crop %}
+            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dd class="mt-1 text-3xl text-gray-900 sm:col-span-2 sm:mt-0" id="face-number">{{ forloop.counter }}</dd>
+              <img src="{{i}}"  width="100" height="100" id="cropped">
+               
+            </div>
+            <P>&nbsp;</P>
+            {% endfor %}
+            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500">Attachments</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200">
+                  <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                    <div class="flex w-0 flex-1 items-center">
+                      <!-- Heroicon name: mini/paper-clip -->
+                      <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="ml-2 w-0 flex-1 truncate">Detect Request Json</span>
+                    </div>
+                    <div class="ml-4 flex-shrink-0">
+                      <a href="media/uploads/dreq.json"   class="font-medium text-indigo-600 hover:text-indigo-500" download>Download</a>
+                    </div>
+                  </li>
+                  <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                    <div class="flex w-0 flex-1 items-center">
+                      <!-- Heroicon name: mini/paper-clip -->
+                      <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M15.621 4.379a3 3 0 00-4.242 0l-7 7a3 3 0 004.241 4.243h.001l.497-.5a.75.75 0 011.064 1.057l-.498.501-.002.002a4.5 4.5 0 01-6.364-6.364l7-7a4.5 4.5 0 016.368 6.36l-3.455 3.553A2.625 2.625 0 119.52 9.52l3.45-3.451a.75.75 0 111.061 1.06l-3.45 3.451a1.125 1.125 0 001.587 1.595l3.454-3.553a3 3 0 000-4.242z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="ml-2 w-0 flex-1 truncate">Detect Response Json</span>
+                    </div>
+                    <div class="ml-4 flex-shrink-0">
+                      <a href="media/uploads/dres.json" class="font-medium text-indigo-600 hover:text-indigo-500" download>Download</a>
+                    </div>
+                  </li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      
+      </div>
+      
+
+    
+    
+  </div>
+  <!-- if there is no response -->
+  <!-- the word begin in view.py indicates that the request has begin but there is no response -->
+  {%  elif request == "begin" %}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h3 class="text-lg leading-6 font-medium text-red-900" id="modal-title">Error :  face could not be detected</h3>
+    </div>
+  </div>
+  <!-- ------------------------------- -->
+   
+  {% endif %}
+</div>
+
+

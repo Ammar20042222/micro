@@ -1,0 +1,653 @@
+{% load static %}
+{% include 'header.html' %}
+<style>
+ 
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+#parent {
+	position: relative;
+	width: 400px;
+	height: 400px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 50%;
+	transform: rotate(0deg);
+	transition: transform 0.7s linear;
+}
+
+#middle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: purple;
+  border-radius: 50%;
+  top: 40%;
+  left: 40%;
+}
+
+#child {
+	position: absolute;
+	width: 80px;
+	height: 80px;
+	transform: rotate(0deg);
+	transition: transform 0.7s linear;
+	top: -40px;   /* -child size/2 */
+	left: 110px;   /* parent size/2 - child size/2 */
+}
+
+
+#img {
+	max-width: 100%;
+	border-radius: 50%;
+  background-color: #ad2ee8;
+  width: 80px;
+  height: 80px;
+}
+
+
+ 
+ 
+
+.sphere path {
+  fill: url(#sphereGradient);
+  stroke-width: 1px;
+  stroke: rgba(80,80,80,.35);
+  backface-visibility: hidden;
+}
+ 
+ 
+ 
+ 
+#clipped {
+    background: linear-gradient(270deg, #2ee8b8, #e8ab2e, #ad2ee8, #2ee87f);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+</style>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      },
+    }
+</script>
+
+<body>
+ 
+
+<!-- first div -->
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<div x-data="{ isOpen: false }" class="relative   overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+        <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="50,0 100,0 50,100 0,100" />
+        </svg>
+  
+        
+        <!-- On: "bg-indigo-600", Off: "bg-gray-200" -->
+        {% include 'base.html' %}
+  
+        <main class=" mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+          <div class="sm:text-center lg:text-left">
+            <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl sm:tracking-tight md:text-6xl md:tracking-tight">
+              <span class="block xl:inline">Microservices app using</span>
+              <span class="block text-indigo-600 xl:inline">Api</span>
+            </h1>
+            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">We provide a couple of microservices that help you automate things and make things easier such as identitiy document validation and face detection, No Login required</p>
+            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+              <div class="rounded-md shadow">
+                <a href="/products" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"> Get started </a>
+              </div>
+              <div class="mt-3 sm:mt-0 sm:ml-3">
+                <a href="/contact-us" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <div  id="clipped" class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full "></div>
+    </div>
+  
+     
+  </div>
+<!-- end first div -->
+  <!-- This example requires Tailwind CSS v2.0+ -->
+<div class="py-12  bg-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <h2 class="text-lg text-indigo-600 font-semibold">Automation</h2>
+        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">A better way to  automate things</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">There are a couple of advantages that distiguishes our microservices software from other applications.</p>
+      </div>
+  
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/globe-alt -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Documentation Validation for all Countries</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">Validates identity documents for all countries around the world, which means that its global</dd>
+          </div>
+  
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/scale -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">There are no fees</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">There are no fees to use this software , which means that it is completely free, unlike many other automation softwares</dd>
+          </div>
+  
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/lightning-bolt -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Automation Process is instant</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">Analysis Process such as the data analysis, identity document identification do not take that much time because they take only few seconds </dd>
+          </div>
+          
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <!-- Heroicon name: outline/annotation -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900">No login required , email or SMS validation</p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-500">Our software is very simple, it does not need any kind or source of validation , just select the service that you want , and it will do it for you</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <!-- Sphere div -->
+<div class="max-w-7xl py-12  mx-auto px-4 sm:px-6  lg:px-8">
+  <div class=" grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+          
+            <main class=" mt-10 m max-w-7xl  sm:mt-12   md:mt-16 lg:mt-20   xl:mt-28">
+                <h1 class="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl sm:tracking-tight md:text-6xl md:tracking-tight">
+                  <span class="block xl:inline">Global data analysis and identity documentation</span>
+                </h1>
+                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">Our services are global, which means that they work in all parts of the world, smoothly and effiently.</p>
+            </main>  
+          </div>
+
+
+          <div class="animation-wrapper">
+            <div class="sphere-animation">
+              <svg class="sphere" viewBox="0 0 440 440" stroke="rgba(80,80,80,.35)">
+                <defs>
+                  <linearGradient id="sphereGradient" x1="5%" x2="5%" y1="0%" y2="15%">
+                    <stop stop-color="#373734" offset="0%"/>
+                    <stop stop-color="#242423" offset="50%"/>
+                    <stop stop-color="#0D0D0C" offset="100%"/>
+                  </linearGradient>
+                </defs>
+                <path d="M361.604 361.238c-24.407 24.408-51.119 37.27-59.662 28.727-8.542-8.543 4.319-35.255 28.726-59.663 24.408-24.407 51.12-37.269 59.663-28.726 8.542 8.543-4.319 35.255-28.727 59.662z"/>
+                <path d="M360.72 360.354c-35.879 35.88-75.254 54.677-87.946 41.985-12.692-12.692 6.105-52.067 41.985-87.947 35.879-35.879 75.254-54.676 87.946-41.984 12.692 12.692-6.105 52.067-41.984 87.946z"/>
+                <path d="M357.185 356.819c-44.91 44.91-94.376 68.258-110.485 52.149-16.11-16.11 7.238-65.575 52.149-110.485 44.91-44.91 94.376-68.259 110.485-52.15 16.11 16.11-7.239 65.576-52.149 110.486z"/>
+                <path d="M350.998 350.632c-53.21 53.209-111.579 81.107-130.373 62.313-18.794-18.793 9.105-77.163 62.314-130.372 53.209-53.21 111.579-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z"/>
+                <path d="M343.043 342.677c-59.8 59.799-125.292 91.26-146.283 70.268-20.99-20.99 10.47-86.483 70.269-146.282 59.799-59.8 125.292-91.26 146.283-70.269 20.99 20.99-10.47 86.484-70.27 146.283z"/>
+                <path d="M334.646 334.28c-65.169 65.169-136.697 99.3-159.762 76.235-23.065-23.066 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z"/>
+                <path d="M324.923 324.557c-69.806 69.806-146.38 106.411-171.031 81.76-24.652-24.652 11.953-101.226 81.759-171.032 69.806-69.806 146.38-106.411 171.031-81.76 24.652 24.653-11.953 101.226-81.759 171.032z"/>
+                <path d="M312.99 312.625c-73.222 73.223-153.555 111.609-179.428 85.736-25.872-25.872 12.514-106.205 85.737-179.428s153.556-111.609 179.429-85.737c25.872 25.873-12.514 106.205-85.737 179.429z"/>
+                <path d="M300.175 299.808c-75.909 75.909-159.11 115.778-185.837 89.052-26.726-26.727 13.143-109.929 89.051-185.837 75.908-75.908 159.11-115.778 185.837-89.051 26.726 26.726-13.143 109.928-89.051 185.836z"/>
+                <path d="M284.707 284.34c-77.617 77.617-162.303 118.773-189.152 91.924-26.848-26.848 14.308-111.534 91.924-189.15C265.096 109.496 349.782 68.34 376.63 95.188c26.849 26.849-14.307 111.535-91.923 189.151z"/>
+                <path d="M269.239 267.989c-78.105 78.104-163.187 119.656-190.035 92.807-26.849-26.848 14.703-111.93 92.807-190.035 78.105-78.104 163.187-119.656 190.035-92.807 26.849 26.848-14.703 111.93-92.807 190.035z"/>
+                <path d="M252.887 252.52C175.27 330.138 90.584 371.294 63.736 344.446 36.887 317.596 78.043 232.91 155.66 155.293 233.276 77.677 317.962 36.521 344.81 63.37c26.85 26.848-14.307 111.534-91.923 189.15z"/>
+                <path d="M236.977 236.61C161.069 312.52 77.867 352.389 51.14 325.663c-26.726-26.727 13.143-109.928 89.052-185.837 75.908-75.908 159.11-115.777 185.836-89.05 26.727 26.726-13.143 109.928-89.051 185.836z"/>
+                <path d="M221.067 220.7C147.844 293.925 67.51 332.31 41.639 306.439c-25.873-25.873 12.513-106.206 85.736-179.429C200.6 53.786 280.931 15.4 306.804 41.272c25.872 25.873-12.514 106.206-85.737 179.429z"/>
+                <path d="M205.157 204.79c-69.806 69.807-146.38 106.412-171.031 81.76-24.652-24.652 11.953-101.225 81.759-171.031 69.806-69.807 146.38-106.411 171.031-81.76 24.652 24.652-11.953 101.226-81.759 171.032z"/>
+                <path d="M189.247 188.881c-65.169 65.169-136.696 99.3-159.762 76.235-23.065-23.065 11.066-94.593 76.235-159.762s136.697-99.3 159.762-76.235c23.065 23.065-11.066 94.593-76.235 159.762z"/>
+                <path d="M173.337 172.971c-59.799 59.8-125.292 91.26-146.282 70.269-20.991-20.99 10.47-86.484 70.268-146.283 59.8-59.799 125.292-91.26 146.283-70.269 20.99 20.991-10.47 86.484-70.269 146.283z"/>
+                <path d="M157.427 157.061c-53.209 53.21-111.578 81.108-130.372 62.314-18.794-18.794 9.104-77.164 62.313-130.373 53.21-53.209 111.58-81.108 130.373-62.314 18.794 18.794-9.105 77.164-62.314 130.373z"/>
+                <path d="M141.517 141.151c-44.91 44.91-94.376 68.259-110.485 52.15-16.11-16.11 7.239-65.576 52.15-110.486 44.91-44.91 94.375-68.258 110.485-52.15 16.109 16.11-7.24 65.576-52.15 110.486z"/>
+                <path d="M125.608 125.241c-35.88 35.88-75.255 54.677-87.947 41.985-12.692-12.692 6.105-52.067 41.985-87.947C115.525 43.4 154.9 24.603 167.592 37.295c12.692 12.692-6.105 52.067-41.984 87.946z"/>
+                <path d="M109.698 109.332c-24.408 24.407-51.12 37.268-59.663 28.726-8.542-8.543 4.319-35.255 28.727-59.662 24.407-24.408 51.12-37.27 59.662-28.727 8.543 8.543-4.319 35.255-28.726 59.663z"/>
+              </svg>
+            </div>
+          </div>
+  </div>
+   
+</div>
+  
+  <!-- end sphere div -->
+  <!-- statistics div -->
+  <div id="stat" style="clip-path: polygon(0% 9.5%, 100% 0%, 100% 90.5%, 0% 100%);" class="py-16  bg-gray-900">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6  lg:px-8">
+      <div class="">
+        <h2  class="text-lg  text-indigo-600 font-semibold">Statistics</h2>
+        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-white sm:text-4xl  sm:tracking-tight">We are known for our experience and achivements </p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 ">We have records that show our proficiency and excellence in our field and our product features.</p>
+      </div>
+  
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+           
+   
+        </dl>
+      </div>
+      <div id="count"  class=" grid grid-cols-1 md:grid-cols-3 sm:grid-cols-3 xs:grid-cols-3"> 
+        <div id="count1" >
+          <div>
+            <h1  class="text-3xl  text-pink-600 font-semibold"><span class="font-semibold text-pink-600">+</span><span  id="count-100">100</span></h1>
+            <p class="mt-4 max-w-2xl text-xl text-white lg:mx-auto">Identity Documents or Passports that have been validated.</p>
+          </div>
+        </div>
+        <div id="count1">
+          <div>
+            <h1  class="text-3xl  text-pink-600 font-semibold"><span class="font-semibold text-pink-600">+</span><span id="count-250">250</span></h1>
+            <p class="mt-4 max-w-2xl text-xl text-white lg:mx-auto">Faces that are either detected or matched as twos .</p>
+          </div>
+        </div>
+        <div id="count1">
+          <div>
+            <h1  class="text-3xl  text-pink-600 font-semibold"><span class="font-semibold text-pink-600">+</span><span  id="count-200">200</span></h1>
+            <p class="mt-4 max-w-2xl text-xl text-white lg:mx-auto">Data tables that are anaylzed mathmetically using AI .</p>
+          </div>
+        </div>
+       
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+  <!-- end statistics div -->
+  
+  <!-- Advantages  div -->
+  <div id="stat" style="clip-path: polygon(0% 9.5%, 100% 0%, 100% 90.5%, 0% 100%);" class="py-16  bg-white">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6  lg:px-8">
+      <div class="">
+        <h2  class="text-lg  text-indigo-600 font-semibold">Advantages</h2>
+        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-700 sm:text-4xl  sm:tracking-tight">Here is what we can provide for you ?</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500  ">Our software does not just depend on one microservices, we have multiple microservice available in our software.</p>
+      </div>
+      <div class="mt-10">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+           
+   
+        </dl>
+      </div>
+      <div id="count"  class="lg:space-x-8 grid grid-cols-1 font-medium md:grid-cols-4 sm:grid-cols-4 xs:grid-cols-4 "> 
+        <div id="count1" >
+          <div>
+            <h1  class="text-3xl  text-pink-600 font-semibold"><img width="50px" height="50px" src="{% static 'passport.gif' %}"></h1>
+            <p class="mt-4 max-w-2xl text-xl text-gray lg:mx-auto">Passort and Goverment photo Id scan and validation through 
+              Api , then it if the scanned identity document is valid, the software is going to read the information for you</p>
+          </div>
+        </div>
+        <div id="count1">
+          <div>
+            <h1  class="text-3xl  text-pink-600 font-semibold"><img width="50px" height="50px" src="{% static 'cloud-network.gif' %}"></h1>
+            <p class="mt-4 max-w-2xl text-xl text-gray lg:mx-auto">Data analysis like finding the mean , mode , median , and 
+            other stuff , like QR1 and QR2 , quartile ranges . Moreover, you can get graphic views of your data such as bar charts , histograms , predictions , models.</p>
+          </div>
+        </div>
+        <div id="count1">
+          <div>
+            <h1  class="text-3xl  text-pink-600 font-semibold"><img width="50px" height="50px" src="{% static 'provide-0.gif' %}"></h1>
+            <p class="mt-4 max-w-2xl text-xl text-gray lg:mx-auto">Face detection using Api and AI , you take photo or upload document , after that . The software is going 
+              to check if there is a detected face or not.
+            </p>
+          </div>
+        </div>
+        <div id="count1" >
+          <div>
+            <h1  class="text-3xl  text-pink-600 font-semibold"><img width="50px" height="50px" src="{% static 'neutral.gif' %}"></h1>
+            <p class="mt-4 max-w-2xl text-xl text-gray lg:mx-auto">Face matching , you take a photo of two images , and then upload them. Then our software has algorithems 
+            and a powerful api integration that can detect the the similarities between the two faces and check if they are similar or not.</p>
+          </div>
+        </div>
+       
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <!-- end Advantages  div -->
+  <!-- video  div -->
+  <div style="clip-path: polygon(0% 9.5%, 100% 0%, 100% 100%, 0% 100%);" class="py-16 bg-gray-900">
+    <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8">
+      <!-- first half of  video div -->
+      <div class="">
+        <h2  class="text-lg  text-indigo-600 font-semibold">Update</h2>
+        <p class="mt-2 text-3xl leading-8 font-bold tracking-tight  bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 sm:text-4xl  sm:tracking-tight">Video download microservice</p>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 ">We currently have  launch video download service  on our web application</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <a href="/video" type="submit" id="read-1" class="w-60 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 group relative  flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <span class="absolute right-2 inset-y-0 flex items-center pl-3">
+            <!-- Heroicon name: solid/lock-closed -->
+            <svg xmlns="http://www.w3.org/2000/svg" id="arrow" class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"  viewBox="0 0 25 25"><path style="fill:white" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg>
+          </span>
+         Read more
+          <p>&nbsp;</p>
+        </a>
+         
+      </div> 
+      
+     <!-- second half of video div -->
+     <div>
+      <img  id="d"  src="{%  static 'circling.gif' %}">
+    </div>
+    </div>
+  </div>
+    
+  <style>
+    #d {
+      width : 500px;
+      height: auto;
+      object-fit: cover;
+      position:relative;
+    }
+  </style>
+  <!--end video   div -->
+
+
+  
+ <!-- virtual event   div -->
+ <div class="py-12 bg-white">
+  <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8">
+    <!-- first half of virtual event div -->
+    <div class="">
+      <h2 class="text-lg text-indigo-600 font-semibold">Virtual Event</h2>
+      <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">Watch this virtual event !</p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500">This is a virtual event about importance of AI in software development.</p>
+    
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <a href="https://www.bing.com/videos/search?q=importaance+of+AI&&view=detail&mid=15C47E935802CA184A4A15C47E935802CA184A4A&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dimportaance%2Bof%2BAI%26FORM%3DHDRSC4" type="submit" id="read-1" class="w-60 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 group relative  flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    <span class="absolute right-2 inset-y-0 flex items-center pl-3">
+      <!-- Heroicon name: solid/lock-closed -->
+      <svg xmlns="http://www.w3.org/2000/svg" id="arrow" class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"  viewBox="0 0 25 25"><path style="fill:white" d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z" data-name="Right"/></svg>
+    </span>
+    Watch Session  
+    <p>&nbsp;</p>
+  </a>
+  </div>
+   <!-- second half of virtual event div -->
+   <div>
+    <img   id="d"  src="{%  static 'virtual.gif' %}">
+  </div>
+  </div>
+</div>
+<!-- end virtual event div -->
+ <!-- api div  -->
+ <div class="bg-gray-200 py-12">
+  <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-20 lg:px-8">
+    <div>
+      <h2 class="text-lg text-indigo-600 font-semibold">Api available soon</h2>
+      <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">Give shortcuts to developers</p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500">There will be new api that will be available soon for developers who want to make microservices software, automate 
+      things, fill survey forms , scrap websites ,  etc. This app will be available on a different domain name with end points and api keys. We also give you 15 days free trail
+       The good thing about this api is that it saves developers tons of code and keeps it clean as they are connecting apis between software application which is better than writing 
+      tons of lines of code for thier backend algorithems</p>
+     
+    </div>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div >
+          
+        <img   id="d"  src="{%  static 'api.gif' %}">
+       
+      </div>
+       
+    </div>
+  </div>
+</div>
+
+
+
+<!-- end api div-->
+
+<!-- get started div -->
+<div class="py-12 bg-white">
+  <div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-20 lg:px-8">
+    <div> 
+      <h2 class="text-lg text-indigo-600 font-semibold">Call to action</h2>
+      <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight">Ready to get started ?</p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500">To get statrted, you do not need to create an account. Just go to
+        the features or products section, select the service you want and then it will work for you.
+      </p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+        <div class="inline-flex rounded-md shadow">
+          <a href="/product" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">Get started</a>
+        </div>
+        <div class="ml-3 inline-flex rounded-md shadow">
+          <a href="/contact-us" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-5 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-200">Contact Support</a>
+        </div>
+      </div>
+     
+    </div>
+    <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+      <div>
+        <img width="400px" height="200px" id="d" src="{% static 'get-started.gif' %}">
+      </div>
+       
+    </div>
+  </div>
+</div>
+
+
+
+ 
+<!-- end get started div -->
+<!-- footer div -->
+{% include 'footer.html' %}
+
+<!-- end footer div -->
+</body>
+<script>
+  // start of planet animation
+  
+  // end of planet animation
+  //----------------------------------------------
+  // sphere animatio function
+   
+    anime({
+      targets: '#loop',
+      keyframes : [
+        {scale: 1.15},
+      
+      ],
+      duration: 1000,
+      direction : "alternate",
+      loop: true,
+      easing: 'easeInOutSine'
+    });
+    function fitElementToParent(el, padding) {
+    var timeout = null;
+    function resize() {
+      if (timeout) clearTimeout(timeout);
+      anime.set(el, {scale: 1});
+      var pad = padding || 0;
+      var parentEl = el.parentNode;
+      var elOffsetWidth = el.offsetWidth - pad;
+      var parentOffsetWidth = parentEl.offsetWidth;
+      var ratio = parentOffsetWidth / elOffsetWidth;
+      timeout = setTimeout(anime.set(el, {scale: ratio}), 10);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+  }
+
+var sphereAnimation = (function() {
+
+  var sphereEl = document.querySelector('.sphere-animation');
+  var spherePathEls = sphereEl.querySelectorAll('.sphere path');
+  var pathLength = spherePathEls.length;
+  var hasStarted = false;
+  var aimations = [];
+
+  fitElementToParent(sphereEl);
+
+  var breathAnimation = anime({
+    begin: function() {
+      for (var i = 0; i < pathLength; i++) {
+        aimations.push(anime({
+          targets: spherePathEls[i],
+          stroke: {value: ['rgba(255,75,75,1)', 'rgba(80,80,80,.35)'], duration: 500},
+          translateX: [2, -4],
+          translateY: [2, -4],
+          easing: 'easeOutQuad',
+          autoplay: false
+        }));
+      }
+    },
+    update: function(ins) {
+      aimations.forEach(function(animation, i) {
+        var percent = (1 - Math.sin((i * .35) + (.0022 * ins.currentTime))) / 2;
+        animation.seek(animation.duration * percent);
+      });
+    },
+    duration: Infinity,
+    autoplay: false
+  });
+
+  var introAnimation = anime.timeline({
+    autoplay: false
+  })
+  .add({
+    targets: spherePathEls,
+    strokeDashoffset: {
+      value: [anime.setDashoffset, 0],
+      duration: 3900,
+      easing: 'easeInOutCirc',
+      delay: anime.stagger(190, {direction: 'reverse'})
+    },
+    duration: 2000,
+    delay: anime.stagger(60, {direction: 'reverse'}),
+    easing: 'linear'
+  }, 0);
+
+  var shadowAnimation = anime({
+      targets: '#sphereGradient',
+      x1: '25%',
+      x2: '25%',
+      y1: '0%',
+      y2: '75%',
+      duration: 30000,
+      easing: 'easeOutQuint',
+      autoplay: false
+    }, 0);
+
+  function init() {
+    introAnimation.play();
+    breathAnimation.play();
+    shadowAnimation.play();
+  }
+  
+  init();
+
+})();
+
+
+$("#parent").get(0).animate([
+			{ transform: 'rotate(0deg)' },
+			{ transform: 'rotate(360deg)' },
+		], 
+		{
+			duration: 2000,
+			easing: 'linear',
+			iterations: 1,
+			fill: 'forwards',
+      iterations: Infinity
+
+		}
+	);
+
+ $("#child").get(0).animate([
+			{ transform: 'rotate(0deg)' },
+			{ transform: 'rotate(-360deg)' },
+		], 
+		{
+			duration: 2000,
+			easing: 'linear',
+			iterations: 1,
+			fill: 'forwards',
+      iterations: Infinity
+		}
+	);
+
+// watch session animation
+
+//end watch session animation
+
+</script>
+
+</body>
+
+</html>
+ 
+ 
+ 
