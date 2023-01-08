@@ -266,7 +266,7 @@
           <html>
           <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
           <P  class="block">$$ y={{eq}} $$</P> 
-          <P class="text-lg font-medium leading-6 text-gray-900" >Accuracy of this model is  {% widthratio  ac 1  100  %} %</P>
+          <P class="text-lg font-medium leading-6 text-gray-900" >Accuracy of this model is  {{m}} %</P>
           <style>
             .block {
               display: flex;
@@ -385,13 +385,13 @@
                   datasets: [
                   {
                     type: 'scatter',
-                    label : "Relation between " + "{{t1}} " + "and" + " {{t2}}" + "by scatter plot",
+                    label : "Relation between " + "{{t1}} " + "and" + " {{t2}}" + " by scatter plot",
                     data: e1,
                     borderWidth: 1
                   },
                   {
                       type: 'line',
-                      label:  "Relation between " + "{{t1}} " + "and" + " {{t2}}" + "by regression",
+                      label:  "Relation between " + "{{t1}} " + "and" + " {{t2}}" + " by regression",
                       data:  c,
                       pointRadius: 0,
                   }

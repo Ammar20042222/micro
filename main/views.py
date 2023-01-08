@@ -761,7 +761,8 @@ def gs_link(df , header , t1 , t2):
     if er == None:
         gs = 3
     
-    context = {"z" : z, "eq" : eq, "acc" : acc , "arr" : arr , "gs" : gs , "l" : l , "titles" : titles , "x" : x , "result" : result, "t1" : t1 , "t2" : t2 , "text" : text}
+    m = round(max(curves.keys()) * 100 , 2)
+    context = {"m": m ,"z" : z, "eq" : eq, "acc" : acc , "arr" : arr , "gs" : gs , "l" : l , "titles" : titles , "x" : x , "result" : result, "t1" : t1 , "t2" : t2 , "text" : text}
     return context
 
 # a function to analyze links from excel 
