@@ -403,64 +403,65 @@ def compare_to_match(face_1_bytes,face_2_bytes):
             y = detect_response2.to_dict()['results']['detections']
             
             # get detections for face 1 into array to get matches 
+            if len(x) * len(y) > 20:
+                    process = "3"
+            else:
+                for i in range(0 , len(x)):
+                    f = x[i]["roi"]
+                    im = Image.open("media/uploads/s1.jpg",mode='r')
+                    sx,sy = f[0],f[1]
+                    dx,dy = f[0] + f[2] , f[1] + f[3]
+                    im = im.crop((sx,sy,dx,dy))
+                    im = im.save("media/uploads/d1.jpg")
+                    with open("media/uploads/d1.jpg", "rb") as f:
+                            image_binary = f.read()
+                            base64_encode = base64.b64encode(image_binary)
+                            byte_decode = base64_encode.decode('utf8')
+                            crop1.append(byte_decode)
 
-            for i in range(0 , len(x)):
-                f = x[i]["roi"]
-                im = Image.open("media/uploads/s1.jpg",mode='r')
-                sx,sy = f[0],f[1]
-                dx,dy = f[0] + f[2] , f[1] + f[3]
-                im = im.crop((sx,sy,dx,dy))
-                im = im.save("media/uploads/d1.jpg")
-                with open("media/uploads/d1.jpg", "rb") as f:
-                        image_binary = f.read()
-                        base64_encode = base64.b64encode(image_binary)
-                        byte_decode = base64_encode.decode('utf8')
-                        crop1.append(byte_decode)
+                    
+                # get detections for face 2 into array to get matches 
+                for i in range(0 , len(y)):
+                    f = y[i]["roi"]
+                    im = Image.open("media/uploads/s2.jpg",mode='r')
+                    sx,sy = f[0],f[1]
+                    dx,dy = f[0] + f[2] , f[1] + f[3]
+                    im = im.crop((sx,sy,dx,dy))
+                    im = im.save("media/uploads/d2.jpg")
+                    with open("media/uploads/d2.jpg", "rb") as f:
+                            image_binary = f.read()
+                            base64_encode = base64.b64encode(image_binary)
+                            byte_decode = base64_encode.decode('utf8')
+                            crop2.append(byte_decode)
 
                 
-            # get detections for face 2 into array to get matches 
-            for i in range(0 , len(y)):
-                f = y[i]["roi"]
-                im = Image.open("media/uploads/s2.jpg",mode='r')
-                sx,sy = f[0],f[1]
-                dx,dy = f[0] + f[2] , f[1] + f[3]
-                im = im.crop((sx,sy,dx,dy))
-                im = im.save("media/uploads/d2.jpg")
-                with open("media/uploads/d2.jpg", "rb") as f:
-                        image_binary = f.read()
-                        base64_encode = base64.b64encode(image_binary)
-                        byte_decode = base64_encode.decode('utf8')
-                        crop2.append(byte_decode)
+                for i in crop1:
+                    acc[i] = crop2
 
-            
-            for i in crop1:
-                acc[i] = crop2
-
-            
-            
-            for i in acc:
-                    for j in acc[i]:
-                            images = [
-                                  MatchImage(index=1, data=i, type=ImageSource.LIVE),
-                                  MatchImage(index=3, data=j)
-                            ]
-                            compare_request =    MatchRequest(images=images, thumbnails=True)
-                            compare_response = api.matching_api.match(compare_request)
-                            k = (compare_response.to_dict()['results'][0]['similarity'])
-                            d = k
-                            k1 = "data:image/jpeg;base64," + i
-                            k2 = "data:image/jpeg;base64," + j
-                            k3 = round(d * 100)
-                            if k3 < 75:
-                                sm = False
-                            sem.append([k1,k2,k3,sm])
-            
-            process = "2"
-    
+                
+                
+                for i in acc:
+                        for j in acc[i]:
+                                images = [
+                                    MatchImage(index=1, data=i, type=ImageSource.LIVE),
+                                    MatchImage(index=3, data=j)
+                                ]
+                                compare_request =    MatchRequest(images=images, thumbnails=True)
+                                compare_response = api.matching_api.match(compare_request)
+                                k = (compare_response.to_dict()['results'][0]['similarity'])
+                                d = k
+                                k1 = "data:image/jpeg;base64," + i
+                                k2 = "data:image/jpeg;base64," + j
+                                k3 = round(d * 100)
+                                if k3 < 75:
+                                    sm = False
+                                sem.append([k1,k2,k3,sm])
+                
+                process = "2"
+        
     except:
         process = "3"
-    if len(x) * len(y) > 20:
-        process = "3"  
+   
     return {"sem" : sem , "lines1" : y , "lines2" :  x , "process" : process}
     
     
