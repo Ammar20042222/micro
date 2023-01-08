@@ -953,7 +953,7 @@ def excel_link(df , header , t1 , t2):
  
     if er == None or (t1 not in b) or (t2 not in b):
         gs = 3
-    m = max(curves.keys())
+    m = round(max(curves.keys()) * 100 , 2)
     context = {"m" : m , "z" : z, "eq" : eq, "acc" : acc , "arr" : arr , "gs" : gs , "l" : l , "titles" : titles , "x" : x , "result" : result, "t1" : t1 , "t2" : t2 , "text" : text , "ac" : max(curves.keys())}
     return context
     
