@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*4@x!e99@5xvgcb5pv5l0-#d=dit-5fl14df$xm3mybbqb(q2+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -152,7 +154,8 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
-
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+SQL_ALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 
 # Activate Django Heroku 
