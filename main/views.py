@@ -388,6 +388,8 @@ def compare_to_match(face_1_bytes,face_2_bytes):
     lista2 = []
     acc = {}
     sm = True
+    x = ""
+    y = ""
     try:
         with  FaceSdk(host="https://faceapi.regulaforensics.com/") as api:
             detect_request1 = DetectRequest(face_1_bytes)
@@ -401,6 +403,7 @@ def compare_to_match(face_1_bytes,face_2_bytes):
             y = detect_response2.to_dict()['results']['detections']
             
             # get detections for face 1 into array to get matches 
+
             for i in range(0 , len(x)):
                 f = x[i]["roi"]
                 im = Image.open("media/uploads/s1.jpg",mode='r')
@@ -453,9 +456,11 @@ def compare_to_match(face_1_bytes,face_2_bytes):
                             sem.append([k1,k2,k3,sm])
             
             process = "2"
-           
+    
     except:
         process = "3"
+    if len(x) * len(y) > 20:
+        process = "3"  
     return {"sem" : sem , "lines1" : y , "lines2" :  x , "process" : process}
     
     
@@ -948,8 +953,8 @@ def excel_link(df , header , t1 , t2):
  
     if er == None or (t1 not in b) or (t2 not in b):
         gs = 3
-    
-    context = {"z" : z, "eq" : eq, "acc" : acc , "arr" : arr , "gs" : gs , "l" : l , "titles" : titles , "x" : x , "result" : result, "t1" : t1 , "t2" : t2 , "text" : text , "ac" : max(curves.keys())}
+    m = max(curves.keys())
+    context = {"m" : m , "z" : z, "eq" : eq, "acc" : acc , "arr" : arr , "gs" : gs , "l" : l , "titles" : titles , "x" : x , "result" : result, "t1" : t1 , "t2" : t2 , "text" : text , "ac" : max(curves.keys())}
     return context
     
      
