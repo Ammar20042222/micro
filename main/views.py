@@ -403,10 +403,7 @@ def compare_to_match(face_1_bytes,face_2_bytes):
             y = detect_response2.to_dict()['results']['detections']
             
             # get detections for face 1 into array to get matches 
-            if len(x) * len(y) > 20:
-                    process = "3"
-            else:
-                for i in range(0 , len(x)):
+            for i in range(0 , len(x)):
                     f = x[i]["roi"]
                     im = Image.open("media/uploads/s1.jpg",mode='r')
                     sx,sy = f[0],f[1]
@@ -420,8 +417,8 @@ def compare_to_match(face_1_bytes,face_2_bytes):
                             crop1.append(byte_decode)
 
                     
-                # get detections for face 2 into array to get matches 
-                for i in range(0 , len(y)):
+            # get detections for face 2 into array to get matches 
+            for i in range(0 , len(y)):
                     f = y[i]["roi"]
                     im = Image.open("media/uploads/s2.jpg",mode='r')
                     sx,sy = f[0],f[1]
@@ -435,12 +432,12 @@ def compare_to_match(face_1_bytes,face_2_bytes):
                             crop2.append(byte_decode)
 
                 
-                for i in crop1:
+            for i in crop1:
                     acc[i] = crop2
 
                 
                 
-                for i in acc:
+            for i in acc:
                         for j in acc[i]:
                                 images = [
                                     MatchImage(index=1, data=i, type=ImageSource.LIVE),
@@ -457,7 +454,7 @@ def compare_to_match(face_1_bytes,face_2_bytes):
                                     sm = False
                                 sem.append([k1,k2,k3,sm])
                 
-                process = "2"
+            process = "2"
         
     except:
         process = "3"
