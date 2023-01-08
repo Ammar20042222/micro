@@ -2,7 +2,10 @@ from django.shortcuts import render , redirect
 from .models import MyModel
 import shutil
 import os
-from regula.facerecognition.webclient import *
+
+from regula.facesdk.webclient import MatchImage, MatchRequest
+from regula.facesdk.webclient.ext import FaceSdk, DetectRequest
+from regula.facesdk.webclient.gen.model.image_source import ImageSource
 from regula.documentreader.webclient import *
 from mrz.checker.td1 import TD1CodeChecker, get_country
 from mrz.checker.td3 import TD3CodeChecker
@@ -277,12 +280,13 @@ def detect_image(face_2_bytes , obj):
     request = "begin"
     crop = []
     arr = []
-    with MatchingApi(host="https://faceapi.regulaforensics.com/") as api:
+    api_base_path = os.getenv("API_BASE_PATH", "https://faceapi.regulaforensics.com/")
+    with FaceSdk(host="https://faceapi.regulaforensics.com/") as api:
             error = None
             try:
                 if face_2_bytes != "":
                     detect_request = DetectRequest(face_2_bytes)
-                    detect_response = api.detect(detect_request)
+                    detect_response = api.matching_api.detect(detect_request)
                     x = detect_response.to_dict()['results']
                      # set the image width
              
@@ -385,15 +389,15 @@ def compare_to_match(face_1_bytes,face_2_bytes):
     acc = {}
     sm = True
     try:
-        with MatchingApi(host="https://faceapi.regulaforensics.com/") as api:
+        with  FaceSdk(host="https://faceapi.regulaforensics.com/") as api:
             detect_request1 = DetectRequest(face_1_bytes)
-            detect_response1 = api.detect(detect_request1)
+            detect_response1 = api.matching_api.detect(detect_request1)
             x = detect_response1.to_dict()['results']['detections']
              
             
              
             detect_request2 = DetectRequest(face_2_bytes)
-            detect_response2 = api.detect(detect_request2)
+            detect_response2 = api.matching_api.detect(detect_request2)
             y = detect_response2.to_dict()['results']['detections']
             
             # get detections for face 1 into array to get matches 
@@ -434,11 +438,11 @@ def compare_to_match(face_1_bytes,face_2_bytes):
             for i in acc:
                     for j in acc[i]:
                             images = [
-                                CompareImage(index=1, data=i, type=ImageSource.LIVE),
-                                CompareImage(index=3, data=j)
+                                  MatchImage(index=1, data=i, type=ImageSource.LIVE),
+                                  MatchImage(index=3, data=j)
                             ]
-                            compare_request = CompareRequest(images=images)
-                            compare_response = api.compare(compare_request)
+                            compare_request =    MatchRequest(images=images, thumbnails=True)
+                            compare_response = api.matching_api.match(compare_request)
                             k = (compare_response.to_dict()['results'][0]['similarity'])
                             d = k
                             k1 = "data:image/jpeg;base64," + i
